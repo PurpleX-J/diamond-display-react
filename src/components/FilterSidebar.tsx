@@ -28,9 +28,9 @@ const FilterSidebar = () => {
   ];
 
   return (
-    <aside className="hidden lg:block w-72 bg-card/50 border-r border-border p-6 overflow-y-auto h-[calc(100vh-220px)] sticky top-[140px]">
+    <aside className="w-full lg:w-72 bg-card/50 lg:border-r border-border p-4 sm:p-6 overflow-y-auto lg:h-[calc(100vh-220px)] lg:sticky lg:top-[140px]">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-serif font-semibold text-foreground">Filters</h2>
+        <h2 className="text-lg sm:text-xl font-serif font-semibold text-foreground">Filters</h2>
         <Button variant="ghost" size="sm" className="text-xs text-accent hover:text-accent/80 hover:bg-accent/10">
           Clear All
         </Button>
