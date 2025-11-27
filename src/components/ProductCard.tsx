@@ -15,13 +15,13 @@ const ProductCard = ({ id, name, price, image, metal }: ProductCardProps) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   return (
-    <div className="group relative bg-card rounded-lg overflow-hidden border border-border hover:shadow-hover transition-all duration-300">
+    <div className="group relative bg-card rounded-lg overflow-hidden border border-border hover:shadow-elegant hover:border-primary/20 transition-all duration-300 hover:-translate-y-1">
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden bg-muted/30">
+      <div className="relative aspect-square overflow-hidden bg-muted/20">
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         
         {/* Wishlist Button */}
@@ -29,34 +29,34 @@ const ProductCard = ({ id, name, price, image, metal }: ProductCardProps) => {
           size="icon"
           variant="ghost"
           className={cn(
-            "absolute top-3 right-3 bg-background/80 backdrop-blur-sm hover:bg-background transition-all",
+            "absolute top-3 right-3 bg-background/90 backdrop-blur-sm hover:bg-background hover:scale-110 transition-all duration-200 shadow-sm",
             isWishlisted && "text-destructive"
           )}
           onClick={() => setIsWishlisted(!isWishlisted)}
         >
           <Heart
-            className={cn("h-5 w-5", isWishlisted && "fill-current")}
+            className={cn("h-4 w-4", isWishlisted && "fill-current")}
           />
         </Button>
 
         {/* Quick View Overlay */}
-        <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <Button variant="secondary" size="sm">
+        <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+          <Button variant="secondary" size="sm" className="shadow-lg">
             Quick View
           </Button>
         </div>
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
-        <h3 className="font-serif font-medium text-base mb-1 line-clamp-2 group-hover:text-accent transition-colors">
+      <div className="p-5">
+        <h3 className="font-serif font-medium text-base mb-1.5 line-clamp-2 text-foreground group-hover:text-primary transition-colors">
           {name}
         </h3>
         {metal && (
-          <p className="text-xs text-muted-foreground mb-2">{metal}</p>
+          <p className="text-xs text-muted-foreground mb-2.5 font-medium">{metal}</p>
         )}
-        <div className="flex items-center justify-between">
-          <span className="text-lg font-semibold text-primary">
+        <div className="flex items-center justify-between mt-2">
+          <span className="text-lg font-bold text-primary">
             ₹{price.toLocaleString()}
           </span>
         </div>
